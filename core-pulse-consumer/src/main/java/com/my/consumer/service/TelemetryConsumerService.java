@@ -5,6 +5,8 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Service;
 
+import java.util.Collection;
+import java.util.Collections;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.LongAdder;
@@ -27,6 +29,6 @@ public class TelemetryConsumerService {
         Map<String, Long> snapshot = new ConcurrentHashMap<>();
         deviceMessageCounts.forEach((deviceId, count) -> snapshot.put(deviceId, count.sum()));
 
-        return snapshot;
+        return Collections.unmodifiableMap(snapshot);
     }
 }
