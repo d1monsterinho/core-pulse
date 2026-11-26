@@ -25,7 +25,7 @@ public class TelemetryControllerTest {
     private TelemetryController telemetryController;
 
     @Test
-    public void testIngestMetrics_shouldSendMessageToBrokerAndReturnAccepted() {
+    public void ingestMetrics_shouldSendMessageToBrokerAndReturnAccepted() {
         String messageId = "server_01";
         int cpuUsage = 54;
         int memoryUsage = 6188;
